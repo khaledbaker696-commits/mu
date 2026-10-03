@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Alkakouri - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            background: #0f0a1a;
+            color: #ffffff;
+            line-height: 1.6;
+            position: relative;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* الخلفية الفنية */
+        .art-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(168, 85, 247, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(79, 70, 229, 0.15) 0%, transparent 50%),
+                linear-gradient(135deg, #0f0a1a 0%, #2d1b4e 50%, #1a0a2e 100%);
+            z-index: -1;
+        }
+
+        /* Header - تصميم ثابت في الأعلى */
+        .header-container {
+            position: relative;
+            width: 100%;
+            padding: 60px 40px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+            z-index: 1000;
+        }
+
+        .portfolio-title {
+            font-size: 72px;
+            font-weight: 400;
+            margin-bottom: 15px;
+            font-style: italic;
+            color: #ffffff;
+            text-shadow: 0 0 40px rgba(168, 85, 247, 0.4);
+            letter-spacing: 2px;
+        }
+
+        .portfolio-subtitle {
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: #a78bfa;
+            font-family: 'Arial', sans-serif;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-description {
+            font-size: 14px;
+            color: #d8c4f0;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            letter-spacing: 0.3px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Language Toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 8px 16px;
+            cursor: pointer;
+            font-family: 'Arial', sans-serif;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            color: #ffffff;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border-radius: 6px;
+            z-index: 2000;
+            backdrop-filter: blur(10px);
+        }
+
+        .lang-toggle:hover {
+            background: rgba(168, 85, 247, 0.7);
+            border-color: #ffffff;
+        }
+
+        .lang-text {
+            font-weight: 600;
+        }
+
+        .lang-text.inactive {
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* المصفوفة الفنية - 4x4 Grid */
+        .art-grid {
+            padding: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* البطاقات - جزء من اللوحة */
+        .art-card {
+            background: transparent;
+            border: none;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 10px 40px rgba(168, 85, 247, 0.2);
+            padding: 0;
+            position: relative;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            aspect-ratio: 1/1;
+        }
+
+        .art-card:hover {
+            box-shadow: 0 20px 60px rgba(168, 85, 247, 0.4);
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(168, 85, 247, 0.6);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 6px;
+            margin: 0;
+            display: block;
+            transition: all 0.4s ease;
+            filter: brightness(0.95) contrast(1.1) saturate(1.15);
+        }
+
+        .art-card:hover .card-image {
+            filter: brightness(1.1) contrast(1.25) saturate(1.35);
+            transform: scale(1.08);
+        }
+
+        .card-label {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(168, 85, 247, 0.8);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 400;
+            color: #ffffff;
+            font-style: italic;
+            white-space: nowrap;
+            backdrop-filter: blur(8px);
+        }
+
+        /* Footer */
+        .footer-container {
+            padding: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            color: #a78bfa;
+        }
+
+        .sections-count {
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: #a78bfa;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .art-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-title {
+                font-size: 48px;
+            }
+
+            .art-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                padding: 20px;
+            }
+
+            .header-container {
+                padding: 40px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .art-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- الخلفية الفنية -->
+    <div class="art-background"></div>
+
+    <!-- زر تغيير اللغة -->
+    <button class="lang-toggle" onclick="toggleLanguage()" aria-label="Toggle language">
+        <span class="lang-text" id="langEn">EN</span>
+        <span class="lang-divider">/</span>
+        <span class="lang-text inactive" id="langAr">AR</span>
+    </button>
+
+    <!-- Header -->
+    <div class="header-container">
+        <p class="portfolio-subtitle" id="headerSubtitle">PORTFOLIO</p>
+        <h1 class="portfolio-title" id="headerName">Muhammad Alkakouri</h1>
+        <p class="portfolio-description" id="headerDesc">Tap a card to open the drawer. Every section is filed in two parts<br>— Samples of my work, and my experiments.</p>
+    </div>
+
+    <!-- المصفوفة الفنية 4x4 -->
+    <div class="art-grid">
+        <!-- Row 1 -->
+        <div class="art-card" onclick="openCategory('graphic-designs')">
+            <img src="assets/brand/Screenshot 2026-09-18 103942.png" alt="Graphic Designs" class="card-image">
+            <div class="card-label">Graphic Designs</div>
+        </div>
+
+        <div class="art-card" onclick="openCategory('video-editing')">
+            <img src="assets/clips/Video.Guru_٢٠٢٥٠٥٠٦_١٩١٦٥١٩٥١.mp4" alt="Video Editing" class="card-image">
+            <div class="card-label">Video Editing</div>
+        </div>
+
+        <div class="art-card" onclick="openCategory('cvs')">
+            <img src="assets/CVs/WhatsApp Image 2026-09-18 at 10.51.54 AM.jpeg" alt="CVs" class="card-image">
+            <div class="card-label">CVs</div>
+        </div>
+
+        <div class="art-card" onclick="openCategory('github-repos')">
+            <img src="assets/n8n/Screenshot 2026-09-18 092826.png" alt="Github Repos" class="card-image">
+            <div class="card-label">Github Repos</div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="art-card" onclick="openCategory('games-projects')">
+            <img src="assets/RobloxContent/Screenshot 2026-08-17 104803.png" alt="Games Projects" class="card-image">
+            <div class="card-label">Games Projects</div>
+        </div>
+
+        <div class="art-card" onclick="openCategory('automation-projects')">
+            <img src="assets/n8n/Screenshot 2026-09-18 093048.png" alt="Automation Projects" class="card-image">
+            <div class="card-label">Automation Projects</div>
+        </div>
+
+        <div class="art-card" onclick="openCategory('presentations')">
+            <img src="assets/presentation/Organic_Medjool_Farming_Blueprint.pdf" alt="Presentations" class="card-image">
+            <div class="card-label">Presentations</div>
+        </div>
+
+        <div class="art-card" onclick="openCategory('uiux-web-design')">
+            <img src="assets/brand/Screenshot 2026-09-18 104002.png" alt="UI/UX & Web Design" class="card-image">
+            <div class="card-label">UI/UX & Web</div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="art-card" onclick="openCategory('3d-blender')">
+            <img src="assets/ROBLOX MODELS/hoverboard.glb" alt="3D & Blender" class="card-image">
+            <div class="card-label">3D & Blender</div>
+        </div>
+
+        <div class="art-card" onclick="openCategory('thumbnails')">
+            <img src="assets/thumbs/WhatsApp Image 2026-09-18 at 10.51.53 AM (1).jpeg" alt="Thumbnails" class="card-image">
+            <div class="card-label">Thumbnails</div>
+        </div>
+
+        <div class="art-card" onclick="openCategory('brand-identity')">
+            <img src="assets/brand/Screenshot 2026-09-18 104011.png" alt="Brand Identity" class="card-image">
+            <div class="card-label">Brand Identity</div>
+        </div>
+
+        <div class="art-card" onclick="openCategory('ai-videos')">
+            <img src="assets/long/ai automation/Crimson Grove  The Ancient Red Sap Cult's Deadly Secret.mp4" alt="AI Videos" class="card-image">
+            <div class="card-label">AI Videos</div>
+        </div>
+
+        <!-- Row 4 -->
+        <div class="art-card" onclick="openCategory('ai-experiments')">
+            <img src="assets/long/ai automation/Emerald Lake's Deadly Secret  The Green Feather Conspiracy.mp4" alt="AI Experiments" class="card-image">
+            <div class="card-label">AI Experiments</div>
+        </div>
+
+        <div class="art-card" onclick="openCategory('personal-experiments')">
+            <img src="assets/RobloxContent/Screenshot 2026-08-17 114742.png" alt="Personal Experiments" class="card-image">
+            <div class="card-label">Personal Experiments</div>
+        </div>
+
+        <!-- البطاقات الإضافية -->
+        <div class="art-card" onclick="openCategory('graphic-designs')">
+            <img src="assets/brand/Screenshot 2026-09-18 103942.png" alt="Extra 1" class="card-image">
+            <div class="card-label">More Works</div>
+        </div>
+
+        <div class="art-card" onclick="openCategory('graphic-designs')">
+            <img src="assets/brand/Screenshot 2026-09-18 103942.png" alt="Extra 2" class="card-image">
+            <div class="card-label">More Projects</div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-container">
+        <p class="footer-text">Let's connect</p>
+        <p class="sections-count">14 SECTIONS FILED</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Alkakouri - Portfolio</title>
+    <link rel="stylesheet" href="style-fixed.css">
+</head>
+<body>
+    <!-- المربع البنفسجي العلوي كما طلب المستخدم -->
+    <div class="header-purple-box">
+        <p class="subtitle" id="headerSubtitle">PORTFOLIO</p>
+        <h1 id="headerName">Muhammad Alkakouri</h1>
+        <p class="description" id="headerDesc">Tap a card to open the drawer. Every section is filed in two parts<br>— Samples of my work, and my experiments.</p>
+        <button class="lang-toggle" onclick="toggleLanguage()" aria-label="Toggle language">
+            <span class="lang-text" id="langEn">EN</span>
+            <span class="lang-divider">/</span>
+            <span class="lang-text inactive" id="langAr">AR</span>
+        </button>
+    </div>
+
+    <main>
+        <div class="masonry-grid">
+            <!-- Card 1: Graphic Designs -->
+            <div class="card" onclick="openCategory('graphic-designs')">
+                <img src="assets/brand/Screenshot 2026-09-18 103942.png" alt="Graphic Designs">
+                <div class="card-content">
+                    <h3>Graphic Designs</h3>
+                </div>
+            </div>
+
+            <!-- Card 2: Video Editing -->
+            <div class="card" onclick="openCategory('video-editing')">
+                <img src="assets/clips/Video.Guru_٢٠٢٥٠٥٠٦_١٩١٦٥١٩٥١.mp4" alt="Video Editing">
+                <div class="card-content">
+                    <h3>Video Editing</h3>
+                </div>
+            </div>
+
+            <!-- Card 3: CVs -->
+            <div class="card" onclick="openCategory('cvs')">
+                <img src="assets/CVs/WhatsApp Image 2026-09-18 at 10.51.54 AM.jpeg" alt="CVs">
+                <div class="card-content">
+                    <h3>CVs</h3>
+                </div>
+            </div>
+
+            <!-- Card 4: Github Repos -->
+            <div class="card" onclick="openCategory('github-repos')">
+                <img src="assets/n8n/Screenshot 2026-09-18 092826.png" alt="Github Repos">
+                <div class="card-content">
+                    <h3>Github Repos</h3>
+                </div>
+            </div>
+
+            <!-- Card 5: Games Projects -->
+            <div class="card" onclick="openCategory('games-projects')">
+                <img src="assets/RobloxContent/Screenshot 2026-08-17 104803.png" alt="Games Projects">
+                <div class="card-content">
+                    <h3>Games Projects</h3>
+                </div>
+            </div>
+
+            <!-- Card 6: Automation Projects -->
+            <div class="card" onclick="openCategory('automation-projects')">
+                <img src="assets/n8n/Screenshot 2026-09-18 093048.png" alt="Automation Projects">
+                <div class="card-content">
+                    <h3>Automation Projects</h3>
+                </div>
+            </div>
+
+            <!-- Card 7: Presentations -->
+            <div class="card" onclick="openCategory('presentations')">
+                <img src="assets/presentation/Organic_Medjool_Farming_Blueprint.pdf" alt="Presentations">
+                <div class="card-content">
+                    <h3>Presentations</h3>
+                </div>
+            </div>
+
+            <!-- Card 8: UI/UX & Web Design -->
+            <div class="card" onclick="openCategory('uiux-web-design')">
+                <img src="assets/brand/Screenshot 2026-09-18 104002.png" alt="UI/UX & Web Design">
+                <div class="card-content">
+                    <h3>UI/UX & Web Design</h3>
+                </div>
+            </div>
+
+            <!-- Card 9: 3D & Blender -->
+            <div class="card" onclick="openCategory('3d-blender')">
+                <img src="assets/ROBLOX MODELS/hoverboard.glb" alt="3D & Blender">
+                <div class="card-content">
+                    <h3>3D & Blender</h3>
+                </div>
+            </div>
+
+            <!-- Card 10: Thumbnails -->
+            <div class="card" onclick="openCategory('thumbnails')">
+                <img src="assets/thumbs/WhatsApp Image 2026-09-18 at 10.51.53 AM (1).jpeg" alt="Thumbnails">
+                <div class="card-content">
+                    <h3>Thumbnails</h3>
+                </div>
+            </div>
+
+            <!-- Card 11: Brand Identity -->
+            <div class="card" onclick="openCategory('brand-identity')">
+                <img src="assets/brand/Screenshot 2026-09-18 104011.png" alt="Brand Identity">
+                <div class="card-content">
+                    <h3>Brand Identity</h3>
+                </div>
+            </div>
+
+            <!-- Card 12: AI Videos -->
+            <div class="card" onclick="openCategory('ai-videos')">
+                <img src="assets/long/ai automation/Crimson Grove  The Ancient Red Sap Cult's Deadly Secret.mp4" alt="AI Videos">
+                <div class="card-content">
+                    <h3>AI Videos</h3>
+                </div>
+            </div>
+
+            <!-- Card 13: AI Experiments -->
+            <div class="card" onclick="openCategory('ai-experiments')">
+                <img src="assets/long/ai automation/Emerald Lake's Deadly Secret  The Green Feather Conspiracy.mp4" alt="AI Experiments">
+                <div class="card-content">
+                    <h3>AI Experiments</h3>
+                </div>
+            </div>
+
+            <!-- Card 14: Personal Experiments -->
+            <div class="card" onclick="openCategory('personal-experiments')">
+                <img src="assets/RobloxContent/Screenshot 2026-08-17 114742.png" alt="Personal Experiments">
+                <div class="card-content">
+                    <h3>Personal Experiments</h3>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Let's connect</p>
+        <p class="sections-count">14 SECTIONS FILED</p>
+    </footer>
+
+    <script src="subcategory-data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

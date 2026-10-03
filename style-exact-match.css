@@ -1,0 +1,338 @@
+/* التصميم المطابق 100% للصورة قثغاقثفا.png */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #0a0618;
+    color: #ffffff;
+    line-height: 1.5;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* الخلفية الرئيسية - نفس الصورة */
+.art-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        /* الخلفية الداكنة */
+        radial-gradient(circle at 15% 25%, #1a0f35 0%, transparent 60%),
+        radial-gradient(circle at 85% 65%, #2d1b4e 0%, transparent 60%),
+        /* التدرجات البنفسجية الخفيفة */
+        linear-gradient(165deg, #130c25 0%, #1e1339 25%, #251740 50%, #2d1b4e 75%, #1e1339 100%),
+        /* خطوط توهج خفيفة */
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            rgba(139, 92, 246, 0.03) 10px,
+            rgba(139, 92, 246, 0.03) 20px
+        );
+    z-index: -1;
+    filter: brightness(0.95) contrast(1.05);
+}
+
+/* Header - نفس تصميم الصورة */
+.header-container {
+    position: relative;
+    width: 100%;
+    padding: 70px 50px 50px;
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+    z-index: 1000;
+}
+
+.portfolio-title {
+    font-size: 68px;
+    font-weight: 300;
+    margin-bottom: 12px;
+    font-style: italic;
+    color: #e9d5ff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+}
+
+.portfolio-subtitle {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #a78bfa;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 300;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.portfolio-description {
+    font-size: 13px;
+    color: #c4b5fd;
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+}
+
+/* زر اللغة - متل الصورة */
+.lang-toggle {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    background: rgba(26, 19, 57, 0.7);
+    border: 1px solid rgba(168, 85, 247, 0.4);
+    padding: 6px 12px;
+    cursor: pointer;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1.2px;
+    color: #c4b5fd;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border-radius: 4px;
+    z-index: 2000;
+    backdrop-filter: blur(8px);
+}
+
+.lang-toggle:hover {
+    background: rgba(168, 85, 247, 0.3);
+    border-color: rgba(168, 85, 247, 0.7);
+}
+
+.lang-text {
+    font-weight: 400;
+}
+
+.lang-text.inactive {
+    font-weight: 300;
+    color: rgba(196, 181, 253, 0.6);
+}
+
+/* المصفوفة الرئيسية - نفس الصورة */
+.art-grid {
+    padding: 30px 50px 50px;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* البطاقات - مطابقة للصورة */
+.art-card {
+    background: rgba(26, 19, 57, 0.3);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow:
+        0 4px 12px rgba(168, 85, 247, 0.1),
+        0 1px 3px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1/1;
+}
+
+.art-card:hover {
+    background: rgba(38, 28, 82, 0.4);
+    border-color: rgba(168, 85, 247, 0.5);
+    box-shadow:
+        0 8px 24px rgba(168, 85, 247, 0.2),
+        0 2px 6px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transform: translateY(-4px);
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+    margin: 0;
+    display: block;
+    transition: all 0.4s ease;
+    filter: brightness(0.9) contrast(1.05) saturate(1.1);
+}
+
+.art-card:hover .card-image {
+    filter: brightness(1.05) contrast(1.1) saturate(1.2);
+    transform: scale(1.05);
+}
+
+.card-label {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(168, 85, 247, 0.7);
+    padding: 4px 10px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 400;
+    color: #ffffff;
+    font-style: italic;
+    white-space: nowrap;
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer - نفس الصورة */
+.footer-container {
+    padding: 30px 50px;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-text {
+    font-size: 13px;
+    color: #a78bfa;
+    opacity: 0.8;
+}
+
+.sections-count {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #a78bfa;
+    opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .art-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+    }
+
+    .portfolio-title {
+        font-size: 56px;
+    }
+}
+
+@media (max-width: 768px) {
+    .art-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 20px 30px;
+    }
+
+    .header-container {
+        padding: 50px 30px 30px;
+    }
+
+    .portfolio-title {
+        font-size: 42px;
+    }
+
+    .portfolio-description {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .art-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 15px 20px;
+    }
+
+    .header-container {
+        padding: 40px 20px 20px;
+    }
+
+    .portfolio-title {
+        font-size: 36px;
+    }
+}
+
+/* إضافة تأثيرات إضافية متل الصورة */
+.art-grid::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50px;
+    right: 50px;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(168, 85, 247, 0.3),
+        transparent);
+    z-index: 0;
+}
+
+.art-grid::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50px;
+    right: 50px;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(168, 85, 247, 0.3),
+        transparent);
+    z-index: 0;
+}
+
+/* تأثيرات النصوص */
+.portfolio-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg,
+        rgba(168, 85, 247, 0.5),
+        rgba(139, 92, 246, 0.3),
+        transparent);
+    margin: 15px auto 0;
+}
+
+/* إضافة توهجات خفيفة في الزوايا */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 10% 15%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 90% 85%, rgba(168, 85, 247, 0.06) 0%, transparent 50%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* تحسين الظلال */
+.art-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    border-radius: 8px;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    pointer-events: none;
+    z-index: 1;
+}

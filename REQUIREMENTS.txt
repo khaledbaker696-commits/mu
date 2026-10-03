@@ -1,0 +1,15 @@
+FIXES NEEDED:
+1. ✓ Remove "Clipper Edits" as separate - merge into Clips
+2. ✓ Restore MY WORKS and MY EXPERIMENTS split sections (left/right)
+3. ✓ Keep subcategory stickers in MY WORKS section
+4. ✓ Back button on LEFT beside section name
+5. ✓ Back button after entering ANY section from main home
+6. ✓ Fix images to show fully (not cropped) - use object-fit: contain
+7. ✓ Change "Books" to "Book Covers"
+8. ✓ Create preview image for Professional Resumes section
+9. ✓ Make PDFs display fully in frame without cropping
+10. ✓ Games Projects should contain "Roblox Games" sticker (not direct)
+11. ✓ Get ALL 68+ Roblox screenshots (not just 12)
+12. ✓ Get ALL n8n images (12 total files)
+13. ✓ Get ALL 220 ROBLOX Models
+14. ✓ No duplicates

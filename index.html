@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Alkakouri - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <p class="subtitle" id="headerSubtitle">PORTFOLIO</p>
+        <h1 id="headerName">Muhammad Alkakouri</h1>
+        <p class="description" id="headerDesc">Tap a card to open the drawer. Every section is filed in two parts<br>— Samples of my work, and my experiments.</p>
+        <button class="lang-toggle" onclick="toggleLanguage()" aria-label="Toggle language">
+            <span class="lang-text" id="langEn">EN</span>
+            <span class="lang-divider">/</span>
+            <span class="lang-text inactive" id="langAr">AR</span>
+        </button>
+    </header>
+
+    <main class="masonry-grid">
+        <!-- Card 1: Video Editing -->
+        <div class="card" onclick="openCategory('video-editing')">
+            <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=400&h=300&fit=crop" alt="Video Editing">
+            <div class="card-content">
+                <h3>Video Editing</h3>
+            </div>
+        </div>
+
+        <!-- Card 2: Graphic Designs -->
+        <div class="card" onclick="openCategory('graphic-designs')">
+            <img src="assets/brand/Screenshot 2026-09-18 103942.png" alt="Graphic Designs">
+            <div class="card-content">
+                <h3>Graphic Designs</h3>
+            </div>
+        </div>
+
+        <!-- Card 3: Github Repos -->
+        <div class="card" onclick="openCategory('github-repos')">
+            <img src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=400&h=300&fit=crop" alt="Github Repos">
+            <div class="card-content">
+                <h3>Github Repos</h3>
+            </div>
+        </div>
+
+        <!-- Card 4: Games Projects -->
+        <div class="card" onclick="openCategory('games-projects')">
+            <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=400&h=300&fit=crop" alt="Games Projects">
+            <div class="card-content">
+                <h3>Games Projects</h3>
+            </div>
+        </div>
+
+        <!-- Card 5: Automation Projects -->
+        <div class="card" onclick="openCategory('automation-projects')">
+            <img src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=400&h=300&fit=crop" alt="Automation Projects">
+            <div class="card-content">
+                <h3>Automation Projects</h3>
+            </div>
+        </div>
+
+        <!-- Card 6: UI/UX & Web Design -->
+        <div class="card" onclick="openCategory('uiux-web-design')">
+            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=300&fit=crop" alt="UI/UX & Web Design">
+            <div class="card-content">
+                <h3>UI/UX & Web Design</h3>
+            </div>
+        </div>
+
+        <!-- Card 7: 3D & Blender -->
+        <div class="card" onclick="openCategory('3d-blender')">
+            <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=400&h=300&fit=crop" alt="3D & Blender">
+            <div class="card-content">
+                <h3>3D & Blender</h3>
+            </div>
+        </div>
+
+        <!-- Card 8: Experiments -->
+        <div class="card" onclick="openCategory('experiments')">
+            <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=400&h=300&fit=crop" alt="Experiments">
+            <div class="card-content">
+                <h3>Experiments</h3>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Let's connect</p>
+        <p class="sections-count">8 SECTIONS FILED</p>
+    </footer>
+
+    <script src="subcategory-data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

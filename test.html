@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Portfolio JS</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 40px; background: #d4caba; }
+        .success { color: green; font-weight: bold; }
+        .error { color: red; font-weight: bold; }
+        button { padding: 10px 20px; margin: 10px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Portfolio JavaScript Test</h1>
+    <div id="results"></div>
+    <button onclick="testOpenCategory()">Test Open Category</button>
+    <button onclick="testSubcategoryData()">Test Subcategory Data</button>
+
+    <script src="subcategory-data.js"></script>
+    <script src="script.js"></script>
+    <script>
+        const results = document.getElementById('results');
+
+        function log(msg, isError) {
+            const p = document.createElement('p');
+            p.className = isError ? 'error' : 'success';
+            p.textContent = msg;
+            results.appendChild(p);
+            console.log(msg);
+        }
+
+        // Test 1: Check if categories exist
+        if (typeof categories !== 'undefined') {
+            log('SUCCESS: categories object exists (' + Object.keys(categories).length + ' categories)');
+        } else {
+            log('ERROR: categories object NOT found', true);
+        }
+
+        // Test 2: Check if subcategoryData exists
+        if (typeof subcategoryData !== 'undefined') {
+            log('SUCCESS: subcategoryData exists (' + Object.keys(subcategoryData).length + ' subcategories)');
+        } else {
+            log('ERROR: subcategoryData NOT found', true);
+        }
+
+        // Test 3: Check functions
+        if (typeof openCategory === 'function') {
+            log('SUCCESS: openCategory function exists');
+        } else {
+            log('ERROR: openCategory function NOT found', true);
+        }
+
+        if (typeof openSubcategory === 'function') {
+            log('SUCCESS: openSubcategory function exists');
+        } else {
+            log('ERROR: openSubcategory function NOT found', true);
+        }
+
+        if (typeof closeDetail === 'function') {
+            log('SUCCESS: closeDetail function exists');
+        } else {
+            log('ERROR: closeDetail function NOT found', true);
+        }
+
+        function testOpenCategory() {
+            log('Testing openCategory("video-editing")...');
+            try {
+                openCategory('video-editing');
+                log('SUCCESS: openCategory executed without errors');
+            } catch(e) {
+                log('ERROR: ' + e.message, true);
+            }
+        }
+
+        function testSubcategoryData() {
+            if (typeof subcategoryData !== 'undefined' && subcategoryData['Long Form Videos']) {
+                const items = subcategoryData['Long Form Videos'];
+                log('SUCCESS: Long Form Videos has ' + items.length + ' items');
+                log('First item: ' + items[0].title);
+            } else {
+                log('ERROR: Cannot access subcategoryData', true);
+            }
+        }
+    </script>
+</body>
+</html>

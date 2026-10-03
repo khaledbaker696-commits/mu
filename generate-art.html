@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artistic Background Generator</title>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Set canvas size
+        canvas.width = window.innerWidth * 2;
+        canvas.height = window.innerHeight * 3;
+
+        // Main gradient background
+        const bgGradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+        bgGradient.addColorStop(0, '#0f0a1a');
+        bgGradient.addColorStop(0.5, '#2d1b5e');
+        bgGradient.addColorStop(1, '#1a0a2e');
+        ctx.fillStyle = bgGradient;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Draw artistic elements
+        function drawGradientCircle(x, y, radius, color1, color2, opacity) {
+            const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
+            gradient.addColorStop(0, `rgba(${color1}, ${opacity})`);
+            gradient.addColorStop(1, `rgba(${color2}, 0)`);
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        // Large artistic shapes
+        drawGradientCircle(300, 500, 600, '168, 85, 247', '93, 112, 219', 0.35);
+        drawGradientCircle(canvas.width - 400, 800, 700, '79, 70, 229', '147, 51, 234', 0.3);
+        drawGradientCircle(canvas.width / 2, 1500, 650, '168, 85, 247', '79, 70, 229', 0.25);
+        drawGradientCircle(500, 2200, 550, '147, 51, 234', '99, 102, 241', 0.2);
+        drawGradientCircle(canvas.width - 600, 2500, 620, '99, 102, 241', '168, 85, 247', 0.28);
+
+        // Draw flowing lines
+        ctx.strokeStyle = 'rgba(168, 85, 247, 0.15)';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        for (let i = 0; i <= canvas.width; i += 50) {
+            const y = 600 + Math.sin(i / 200) * 150;
+            if (i === 0) ctx.moveTo(i, y);
+            else ctx.lineTo(i, y);
+        }
+        ctx.stroke();
+
+        // Export as data URL
+        const imageData = canvas.toDataURL('image/jpeg', 0.8);
+        console.log('Generated image');
+
+        // Create downloadable link
+        const link = document.createElement('a');
+        link.href = imageData;
+        link.download = 'artistic-background.jpg';
+        link.click();
+    </script>
+</body>
+</html>

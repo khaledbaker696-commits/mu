@@ -1,0 +1,33 @@
+# Git ignore for Portfolio
+
+# Large 3D models - host separately or use Git LFS
+assets/ROBLOX MODELS/
+assets/RobloxContent/
+
+# Claude and agent files
+.agents/
+.claude/
+skills-lock.json
+
+# Backup files
+*.backup
+*.old
+*_old.js
+index-fixed.html
+portfolio-exact-match.html
+test.html
+
+# Build/generate files
+generate-*.js
+generate_data.py
+generated_items.txt
+script_data.txt
+
+# Style backups
+style-*.css
+
+# Temp files
+IMPLEMENTATION_SUMMARY.txt
+REQUIREMENTS.txt
+STATUS.md
+bg-artwork.png
